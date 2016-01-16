@@ -20,7 +20,6 @@ set backspace=indent
 set backspace+=eol
 set backspace+=start
 
-
 " Set local directories for backup and swap files
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
@@ -93,7 +92,7 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 set diffopt+=vertical
 
 " ----------------------------------------------------------------------
-" | Plugins			                                                   |
+" | Plugins                                                            |
 " ----------------------------------------------------------------------
 
 " Start Plug bundles
@@ -104,3 +103,79 @@ Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 
 " Add plugins to &runtimepath
 call plug#end()
+
+" ----------------------------------------------------------------------
+" | Helper Functions                                                   |
+" ----------------------------------------------------------------------
+
+function! StripTrailingWhitespaces()
+    " Save last search and cursor position
+    let searchHistory = @/
+    let cursorLine = line('.')
+    let cursorColumn = col('.')
+
+    " Strip trailing whitespaces
+    %s/\s\+$//e
+
+    " Restore previous search history and cursor position
+    let @/ = searchHistory
+    call cursor(cursorLine, cursorColumn)
+endfunction
+
+" ----------------------------------------------------------------------
+" | Automatic Commands                                                 |
+" ----------------------------------------------------------------------
+
+if has('autocmd')
+
+    " Automatically reload the configurations from the
+    " `~/.vimrc` and `~/.gvimrc` files whenever they are changed
+
+    augroup auto_reload_vim_configs
+
+        autocmd!
+        autocmd BufWritePost vimrc source $MYVIMRC
+
+        if has('gui_running')
+            autocmd BufWritePost gvimrc source $MYGVIMRC
+        endif
+
+    augroup END
+
+    " Use relative line numbers
+    " http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
+
+    augroup relative_line_numbers
+
+        autocmd!
+
+        " Automatically switch to absolute line numbers when vim loses focus
+        autocmd FocusLost * :set number
+
+        " Automatically switch to relative line numbers when vim gains focus
+        autocmd FocusGained * :set relativenumber
+
+        " Automatically switch to absolute line numbers when vim is in insert mode
+        autocmd InsertEnter * :set number
+
+        " Automatically switch to relative line numbers when vim is in normal mode
+        autocmd InsertLeave * :set relativenumber
+
+    augroup END
+
+    " Automatically strip the trailing whitespaces when files are saved
+
+    augroup strip_trailing_whitespaces
+
+		" Exclude markdown as it needs to be aware of whitespaces
+        let excludedFileTypes = [ 'mkd.markdown' ]
+
+        " Only strip the trailing whitespaces if the file type is
+        " not in the excluded file types list
+
+        autocmd!
+        autocmd BufWritePre * if index(excludedFileTypes, &ft) < 0 | :call StripTrailingWhitespaces()
+
+    augroup END
+
+endif
