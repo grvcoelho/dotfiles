@@ -5,15 +5,8 @@
 " Don't make vim vi-compatibile
 set nocompatible
 
-" Set map leader
-let mapleader = ","
-
 " Enable syntax highlighting
 syntax on
-
-" Set the colorscheme for gui and terminal sessions
-colorscheme dracula
-autocmd BufEnter * colorscheme dracula
 
 " Allow `backspace` in insert mode
 set backspace=indent
@@ -43,6 +36,13 @@ set wildmenu
 " Complete files like a shell
 set wildmode=list:longest
 
+" Increase command line history
+set history=5000
+
+" Enable search highlighting
+set hlsearch
+set incsearch
+
 " Search case-insensitive
 set ignorecase
 
@@ -66,6 +66,9 @@ set title
 
 " Use visual bell instead of audible bell
 set visualbell
+
+" Enable mouse in all modes
+set mouse=a
 
 " Show the status line all the time
 set laststatus=2
@@ -122,6 +125,16 @@ function! StripTrailingWhitespaces()
     call cursor(cursorLine, cursorColumn)
 endfunction
 
+function! ToggleRelativeLineNumbers()
+
+    if ( &relativenumber == 1 )
+        set number
+    else
+        set relativenumber
+    endif
+
+endfunction
+
 " ----------------------------------------------------------------------
 " | Automatic Commands                                                 |
 " ----------------------------------------------------------------------
@@ -141,6 +154,26 @@ if has('autocmd')
         endif
 
     augroup END
+
+	" Automatically set the color scheme
+
+	augroup set_colorscheme
+
+		autocmd!
+
+		colorscheme dracula
+		autocmd BufEnter * colorscheme dracula
+
+	augroup END
+
+	" Use javascript syntax for json files
+
+	augroup json
+
+		autocmd!
+		au BufRead,BufNewFile *.json set ft=json syntax=javascript
+
+	augroup END
 
     " Use relative line numbers
     " http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
@@ -179,3 +212,62 @@ if has('autocmd')
     augroup END
 
 endif
+
+" ----------------------------------------------------------------------
+" | Key Mappings                                                       |
+" ----------------------------------------------------------------------
+
+" Set map leader
+let mapleader = ","
+
+" Navigate through tabs
+nnoremap <leader>t :tabnew<cr>
+nnoremap <leader>e :tabedit
+nnoremap <leader>c :tabclose<cr>
+nnoremap <leader>n :tabnext<cr>
+nnoremap <leader>p :tabprevious<cr>
+
+" Go to start of line with H and to the end with L
+noremap H ^
+noremap L $
+
+" Navigate through windows
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Create windows
+nnoremap <leader>v <C-w>v<C-w>l
+nnoremap <leader>m <C-w>s<C-w>j
+nnoremap <leader>d <C-w>q
+
+" Toggle folds
+nnoremap <Space> za
+
+" Open all folds
+nnoremap zO zR
+
+" Close all folds
+nnoremap zC zM
+
+" Close current fold
+nnoremap zc zc
+
+" Close all folds except the current one
+nnoremap zf mzzMzvzz
+
+" Toggle `set relativenumber`
+nmap <leader>n :call ToggleRelativeLineNumbers()<CR>
+
+" Edit .vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" Toggle hlsearch
+nnoremap <leader>hs :set hlsearch!<cr>
+
+" Map <C-C> to <esc>
+noremap <C-C> <esc>
+
+" Enter full-screen
+nnoremap <leader>fs :set lines=999 columns=9999<cr>
