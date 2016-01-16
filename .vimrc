@@ -103,25 +103,25 @@ call plug#begin('~/.vim/plugged')
 
 " Plugins
 Plug 'MarcWeber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim' | Plug 'garbas/vim-snipmate'
-Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-Plug 'editorconfig/editorconfig-vim'
+Plug 'Raimondi/delimitMate'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'tomtom/tcomment_vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'haya14busa/incsearch.vim'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'junegunn/vim-easy-align'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'mileszs/ack.vim'
-Plug 'tpope/vim-fugitive'
+Plug 'milkypostman/vim-togglelist'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/nerdtree'
+Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'junegunn/vim-easy-align'
-Plug 'Raimondi/delimitMate'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'milkypostman/vim-togglelist'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'scrooloose/nerdtree'
-Plug 'haya14busa/incsearch.vim'
-Plug 'pangloss/vim-javascript'
+Plug 'vim-airline/vim-airline'
+Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -180,7 +180,7 @@ if has('autocmd')
 
 		autocmd!
 
-		set guifont=Droid_Sans_Mono:h12
+		set guifont=Droid_Sans_Mono\ for\ Powerline:h13
 		colorscheme dracula
 		autocmd BufEnter * colorscheme dracula
 
@@ -406,3 +406,4 @@ function! s:AckMotion(type) abort
 
     let @@ = reg_save
 endfunction
+
