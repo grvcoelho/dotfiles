@@ -102,7 +102,25 @@ set diffopt+=vertical
 call plug#begin('~/.vim/plugged')
 
 " Plugins
+Plug 'MarcWeber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim' | Plug 'garbas/vim-snipmate'
 Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+Plug 'editorconfig/editorconfig-vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'tomtom/tcomment_vim'
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'junegunn/vim-easy-align'
+Plug 'Raimondi/delimitMate'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'milkypostman/vim-togglelist'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'scrooloose/nerdtree'
+Plug 'haya14busa/incsearch.vim'
+Plug 'pangloss/vim-javascript'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -271,3 +289,62 @@ noremap <C-C> <esc>
 
 " Enter full-screen
 nnoremap <leader>fs :set lines=999 columns=9999<cr>
+
+" ----------------------------------------------------------------------
+" | Plugin - NerdTree                                                  |
+" ----------------------------------------------------------------------
+
+noremap <leader>ft :NERDTreeToggle<CR>
+
+" Don't fuck up vim's default file browser
+let g:NERDTreeHijackNetrw = 0
+
+" ----------------------------------------------------------------------
+" | Plugin - Airline                                                   |
+" ----------------------------------------------------------------------
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'powerlineish'
+let g:airline_section_warning = ''
+let g:airline_inactive_collapse = 0
+let g:airline#extensions#default#section_truncate_width = {
+  \ 'a': 60,
+  \ 'b': 80,
+  \ 'x': 100,
+  \ 'y': 100,
+  \ 'z': 60,
+\ }
+
+" ----------------------------------------------------------------------
+" | Plugin - CtrlP                                                     |
+" ----------------------------------------------------------------------
+
+" Work not only in ancestor directories of the working directory
+let g:ctrlp_working_path_mode = 'a'
+
+" Ignore custom folders
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store'
+
+" Ignore git ignored folders
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+" ----------------------------------------------------------------------
+" | Plugin - Yanstack                                                  |
+" ----------------------------------------------------------------------
+
+nmap <C-M> <Plug>yankstack_substitute_older_paste
+nmap <C-N> <Plug>yankstack_substitute_newer_paste
+
+" Don't use default mappings
+let g:yankstack_map_keys = 0
+
+" ----------------------------------------------------------------------
+" | Plugin - Number Toggle                                             |
+" ----------------------------------------------------------------------
+
+let g:NumberToggleTrigger="<leader>ll"
+
+" ----------------------------------------------------------------------
+" | Plugin - Toggle List                                               |
+" ----------------------------------------------------------------------
+let g:toggle_list_copen_command="Copen"
