@@ -1,0 +1,16 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "description": "Awesome dotfiles for awesome workflows",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grvcoelho/dotfiles.git"
+  },
+  "author": "@grvcoelho",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grvcoelho/dotfiles/issues"
+  },
+  "homepage": "https://github.com/grvcoelho/dotfiles#readme"
+}
