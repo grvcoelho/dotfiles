@@ -180,7 +180,7 @@ if has('autocmd')
 
 		autocmd!
 
-		set guifont=Droid_Sans_Mono\ for\ Powerline:h13
+		set guifont=Droid_Sans_Mono:h13
 		colorscheme dracula
 		autocmd BufEnter * colorscheme dracula
 
@@ -321,7 +321,7 @@ let g:NERDTreeHijackNetrw = 0
 " | Plugin - Airline                                                   |
 " ----------------------------------------------------------------------
 
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:airline_theme = 'powerlineish'
 let g:airline_section_warning = ''
 let g:airline_inactive_collapse = 0
