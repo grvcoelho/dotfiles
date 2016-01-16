@@ -176,10 +176,11 @@ if has('autocmd')
 
 	" Automatically set the color scheme
 
-	augroup set_colorscheme
+	augroup set_font
 
 		autocmd!
 
+		set guifont=Droid_Sans_Mono:h12
 		colorscheme dracula
 		autocmd BufEnter * colorscheme dracula
 
@@ -289,7 +290,7 @@ nnoremap <leader>hs :set hlsearch!<cr>
 noremap <C-C> <esc>
 
 " Enter full-screen
-nnoremap <leader>fs :set lines=999 columns=9999<cr>
+nnoremap <leader>fs :set lines=999 columns=999<cr>
 
 " ----------------------------------------------------------------------
 " | Plugin - Fugitive                                                  |
