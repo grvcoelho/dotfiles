@@ -106,6 +106,7 @@ Plug 'MarcWeber/vim-addon-mw-utils' | Plug 'tomtom/tlib_vim' | Plug 'garbas/vim-
 Plug 'Raimondi/delimitMate'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'grvcoelho/vim-javascript-snippets'
 Plug 'haya14busa/incsearch.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'junegunn/vim-easy-align'
@@ -282,6 +283,9 @@ nmap <leader>n :call ToggleRelativeLineNumbers()<CR>
 
 " Edit .vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+" Reload .vimrc
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Toggle hlsearch
 nnoremap <leader>hs :set hlsearch!<cr>
