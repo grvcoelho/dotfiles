@@ -113,6 +113,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'mileszs/ack.vim'
 Plug 'milkypostman/vim-togglelist'
+Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdtree'
@@ -313,6 +314,13 @@ nnoremap <leader>grm :Gremove<cr>
 nnoremap <leader>gp :Git push
 
 " ----------------------------------------------------------------------
+" | Plugin - Vim JSX                                                   |
+" ----------------------------------------------------------------------
+
+" Let jsx syntax for non-jsx files (i.e: .js files)
+let g:jsx_ext_required = 0
+
+" ----------------------------------------------------------------------
 " | Plugin - NerdTree                                                  |
 " ----------------------------------------------------------------------
 
@@ -410,4 +418,3 @@ function! s:AckMotion(type) abort
 
     let @@ = reg_save
 endfunction
-
