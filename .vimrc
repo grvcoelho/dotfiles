@@ -295,7 +295,7 @@ nnoremap <leader>hs :set hlsearch!<cr>
 noremap <C-C> <esc>
 
 " Enter full-screen
-nnoremap <leader>fs :set lines=999 columns=999<cr>
+nnoremap <leader>fs :set lines=999 columns=1999<cr>
 
 " ----------------------------------------------------------------------
 " | Plugin - Fugitive                                                  |
