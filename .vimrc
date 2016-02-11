@@ -117,6 +117,7 @@ Plug 'mxw/vim-jsx'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdtree'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -124,6 +125,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
 Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+Plug 'mattn/emmet-vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -295,7 +297,7 @@ nnoremap <leader>hs :set hlsearch!<cr>
 noremap <C-C> <esc>
 
 " Enter full-screen
-nnoremap <leader>fs :set lines=999 columns=1999<cr>
+nnoremap <leader>fs :set lines=999 columns=999<cr>
 
 " ----------------------------------------------------------------------
 " | Plugin - Fugitive                                                  |
@@ -377,7 +379,18 @@ let g:NumberToggleTrigger="<leader>ll"
 " ----------------------------------------------------------------------
 " | Plugin - Toggle List                                               |
 " ----------------------------------------------------------------------
+
 let g:toggle_list_copen_command="Copen"
+
+" ----------------------------------------------------------------------
+" | Plugin - Vim Easy Align                                            |
+" ----------------------------------------------------------------------
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " ----------------------------------------------------------------------
 " | Plugin - Ack                                                       |
@@ -418,3 +431,4 @@ function! s:AckMotion(type) abort
 
     let @@ = reg_save
 endfunction
+
