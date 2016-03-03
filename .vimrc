@@ -123,8 +123,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 Plug 'mattn/emmet-vim'
+Plug 'rking/ag.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -335,7 +337,7 @@ let g:NERDTreeHijackNetrw = 0
 " ----------------------------------------------------------------------
 
 let g:airline_powerline_fonts = 0
-let g:airline_theme = 'powerlineish'
+let g:airline_theme='powerlineish'
 let g:airline_section_warning = ''
 let g:airline_inactive_collapse = 0
 let g:airline#extensions#default#section_truncate_width = {
@@ -395,7 +397,7 @@ nmap ga <Plug>(EasyAlign)
 " | Plugin - Ack                                                       |
 " ----------------------------------------------------------------------
 
-noremap <C-F> :Ack!<space>
+noremap <C-F> :Ag!<space>
 
 " (from Steve Losh's vimrc)
 " Motions to Ack for things.  Works with pretty much everything, including:
@@ -430,4 +432,5 @@ function! s:AckMotion(type) abort
 
     let @@ = reg_save
 endfunction
+
 
