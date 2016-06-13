@@ -127,6 +127,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'zenorocha/dracula-theme', {'rtp': 'vim/'}
 Plug 'mattn/emmet-vim'
 Plug 'rking/ag.vim'
+Plug 'scrooloose/syntastic'
+Plug 'embear/vim-localvimrc'
 
 " Add plugins to &runtimepath
 call plug#end()
