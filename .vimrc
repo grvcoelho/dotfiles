@@ -2,6 +2,8 @@
 " | General Settings                                                   |
 " ----------------------------------------------------------------------
 
+" Look at https://github.com/tylerreckart/Dotfiles/blob/master/.vimrc
+
 " Don't make vim vi-compatibile
 set nocompatible
 
