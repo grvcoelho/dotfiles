@@ -1,0 +1,5 @@
+package z
+theme default
+theme emoji-powerline
+theme flash
+theme tomita
