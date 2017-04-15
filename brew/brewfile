@@ -1,0 +1,20 @@
+# Tracks our most used directories and helps you move between them
+z
+
+# Grep, but better
+the_silver_searcher
+
+# Displays the folder structure of a directory
+tree
+
+# Terminal multiplexer
+tmux
+
+# Hack used by tmux to copy/paste between tmux and the OS
+reattach-to-user-namespace
+
+# Fish shell
+fish
+
+# Vim, but better
+neovim/neovim/neovim
