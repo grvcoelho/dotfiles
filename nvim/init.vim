@@ -177,7 +177,9 @@ if has('autocmd')
     set guifont=Roboto_for_Powerline:h13
     set linespace=2
 
-    autocmd BufEnter * colorscheme base16_dracula
+    "Access colors present in 256 colorspace
+    let base16colorspace=256
+    autocmd BufEnter * colorscheme base16-paraiso
   augroup END
 
   " Use javascript syntax for json files
