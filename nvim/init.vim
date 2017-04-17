@@ -123,6 +123,9 @@ call plug#begin('~/.vim/plugged')
   " Create a seemlessly navigation between vim and tmux panes
   Plug 'christoomey/vim-tmux-navigator'
 
+  " Autoclose things like parentheses, quotes, etc
+  Plug 'cohama/lexima.vim'
+
   " Autocomplete engine
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
@@ -131,6 +134,9 @@ call plug#begin('~/.vim/plugged')
 
   " Provide themes for vim-airline plugin
   Plug 'vim-airline/vim-airline-themes'
+
+  " Provide syntax highlighting for many programming languages
+  Plug 'sheerun/vim-polyglot'
 
   " Provide base16 colorschemes
   Plug 'chriskempson/base16-vim'
@@ -235,6 +241,16 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Map <C-C> to <esc>
 noremap <C-C> <esc>
+
+" ----------------------------------------------------------------------
+" | Nvim specific
+" ----------------------------------------------------------------------
+
+if has('nvim')
+  " Make ctrl-h great again
+  nmap <BS> <C-W>h
+  nmap <bs> :<c-u>TmuxNavigateLeft<cr>
+endif
 
 " ----------------------------------------------------------------------
 " | Plugin - Deoplete.nvim
