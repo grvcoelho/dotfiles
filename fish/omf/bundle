@@ -1,3 +1,5 @@
+package foreign-env
+package nvm
 package z
 theme default
 theme emoji-powerline
