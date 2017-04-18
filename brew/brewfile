@@ -16,5 +16,8 @@ reattach-to-user-namespace
 # Fish shell
 fish
 
+# Python 3
+python3
+
 # Vim, but better
 neovim/neovim/neovim
