@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Install neovim-python
+pip3 install neovim
+
+# Install Plug.vim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Link files
+ln -s ~/.dotfiles/nvim ~/.config/nvim
+
+# Install plugins
+nvim +PlugInstall +qa
