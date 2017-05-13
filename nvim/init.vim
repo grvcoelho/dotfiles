@@ -111,6 +111,9 @@ call plug#begin('~/.vim/plugged')
   " Perform ag searches and place them in Quickfix menus
   Plug 'rking/ag.vim'
 
+  " Align things
+  Plug 'junegunn/vim-easy-align'
+
   " Create a file-tree
   Plug 'scrooloose/nerdtree'
 
@@ -137,6 +140,9 @@ call plug#begin('~/.vim/plugged')
 
   " Provide syntax highlighting for many programming languages
   Plug 'sheerun/vim-polyglot'
+
+  " Provide syntax highlighting for racket-lang
+  Plug 'wlangstroth/vim-racket'
 
   " Provide base16 colorschemes
   Plug 'chriskempson/base16-vim'
@@ -275,6 +281,16 @@ let g:NERDTreeHijackNetrw = 0
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'powerlineish'
 autocmd BufEnter * :AirlineRefresh
+
+" ----------------------------------------------------------------------
+" | Plugin - EasyAlign                                                   |
+" ----------------------------------------------------------------------
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " ----------------------------------------------------------------------
 " | Plugin - CtrlP                                                     |
