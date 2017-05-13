@@ -224,9 +224,9 @@ noremap H ^
 noremap L $
 
 " Yank and paste to system's clipboard
-nnoremap <leader>y "+y
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
+noremap <leader>y "+y
+noremap <leader>p "+p
+noremap <leader>P "+P
 
 " Navigate through windows
 nnoremap <C-h> <C-w>h
