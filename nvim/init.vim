@@ -144,6 +144,9 @@ call plug#begin('~/.vim/plugged')
   " Provide syntax highlighting for racket-lang
   Plug 'wlangstroth/vim-racket'
 
+  " Toggles between relative and absolute line numbers
+  Plug 'jeffkreeftmeijer/vim-numbertoggle'
+
   " Provide base16 colorschemes
   Plug 'chriskempson/base16-vim'
 call plug#end()
