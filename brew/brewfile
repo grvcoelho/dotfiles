@@ -7,6 +7,9 @@ the_silver_searcher
 # Displays the folder structure of a directory
 tree
 
+# Github wrapper for the command-line
+hub
+
 # Terminal multiplexer
 tmux
 
