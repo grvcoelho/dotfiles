@@ -14,3 +14,6 @@ abbr ta 'tmux attach -t'
 abbr tl 'tmux list-sessions'
 abbr ts 'tmux new-session -s'
 abbr tkss 'tmux kill-session -t'
+
+# Vim abbreviations
+abbr vim 'nvim'
