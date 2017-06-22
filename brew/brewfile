@@ -9,12 +9,3 @@ tree
 
 # Github wrapper for the command-line
 hub
-
-# Fish shell
-fish
-
-# Python 3
-python3
-
-# Vim, but better
-neovim/neovim/neovim
