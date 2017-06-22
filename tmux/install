@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if ! command -v tmux > /dev/null; then
+  brew install tmux reattach-to-user-namespace 
+fi
+
+ln -s ~/.dotfiles/tmux/config ~/.tmux.conf
+

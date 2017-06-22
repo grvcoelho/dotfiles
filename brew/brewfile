@@ -10,12 +10,6 @@ tree
 # Github wrapper for the command-line
 hub
 
-# Terminal multiplexer
-tmux
-
-# Hack used by tmux to copy/paste between tmux and the OS
-reattach-to-user-namespace
-
 # Fish shell
 fish
 
