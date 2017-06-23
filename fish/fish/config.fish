@@ -4,7 +4,7 @@ if status --is-interactive
 end
 
 # Set z plugin path
-set -g Z_SCRIPT_PATH /usr/local/etc/profile.d/z.sh
+set -gx Z_SCRIPT_PATH /usr/local/etc/profile.d/z.sh
 
 # Set go path
 set -x GOPATH $HOME/go
