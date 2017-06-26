@@ -144,6 +144,9 @@ call plug#begin('~/.vim/plugged')
   " Provide syntax highlighting for racket-lang
   Plug 'wlangstroth/vim-racket'
 
+  " Provide syntax highlighting for racket-lang
+  Plug 'fatih/vim-go'
+
   " Toggles between relative and absolute line numbers
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
@@ -313,6 +316,12 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-stand
 " ----------------------------------------------------------------------
 
 let g:NumberToggleTrigger="<leader>ll"
+
+" ----------------------------------------------------------------------
+" | Plugin - vim-go                                                    |
+" ----------------------------------------------------------------------
+
+let g:go_fmt_command = "goimports"
 
 " ----------------------------------------------------------------------
 " | Plugin - Ag                                                        |
