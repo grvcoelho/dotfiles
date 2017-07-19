@@ -144,7 +144,7 @@ call plug#begin('~/.vim/plugged')
   " Provide syntax highlighting for racket-lang
   Plug 'wlangstroth/vim-racket'
 
-  " Provide syntax highlighting for racket-lang
+  " Provide tools for golang
   Plug 'fatih/vim-go'
 
   " Toggles between relative and absolute line numbers
@@ -197,7 +197,7 @@ if has('autocmd')
 
     "Access colors present in 256 colorspace
     let base16colorspace=256
-    autocmd BufEnter * colorscheme base16-gruvbox-dark-hard
+    autocmd BufEnter * colorscheme base16-dracula
   augroup END
 
   " Use javascript syntax for json files
@@ -269,6 +269,12 @@ endif
 " ----------------------------------------------------------------------
 
 let g:deoplete#enable_at_startup = 1
+
+" ----------------------------------------------------------------------
+" | Plugin - vim-go
+" ----------------------------------------------------------------------
+
+let g:go_fmt_command = "goimports"
 
 " ----------------------------------------------------------------------
 " | Plugin - NerdTree                                                  |
