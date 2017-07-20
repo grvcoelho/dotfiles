@@ -144,6 +144,9 @@ call plug#begin('~/.vim/plugged')
   " Provide syntax highlighting for racket-lang
   Plug 'wlangstroth/vim-racket'
 
+  " Provide terraform utilities
+  Plug 'hashivim/vim-terraform'
+
   " Provide tools for golang
   Plug 'fatih/vim-go'
 
@@ -275,6 +278,12 @@ let g:deoplete#enable_at_startup = 1
 " ----------------------------------------------------------------------
 
 let g:go_fmt_command = "goimports"
+
+" ----------------------------------------------------------------------
+" | Plugin - vim-terraform
+" ----------------------------------------------------------------------
+
+let g:terraform_fmt_on_save=1
 
 " ----------------------------------------------------------------------
 " | Plugin - NerdTree                                                  |
