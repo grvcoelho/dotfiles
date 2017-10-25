@@ -5,6 +5,7 @@ abbr gc 'git commit'
 abbr gco 'git checkout'
 abbr gp 'git push'
 abbr gpl 'git pull'
+abbr gr 'git reset'
 abbr gf 'git fetch'
 abbr gl 'git log'
 abbr gll 'git log --graph --decorate --pretty=oneline --abbrev-commit'
@@ -17,3 +18,4 @@ abbr tkss 'tmux kill-session -t'
 
 # Vim abbreviations
 abbr vim 'nvim'
+abbr vi 'nvim'
