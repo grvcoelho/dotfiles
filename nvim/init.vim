@@ -155,6 +155,9 @@ call plug#begin('~/.vim/plugged')
 
   " Provide base16 colorschemes
   Plug 'chriskempson/base16-vim'
+
+  " Git plugin
+  Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " ----------------------------------------------------------------------
