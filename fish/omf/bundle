@@ -1,5 +1,7 @@
+package aws
 package foreign-env
 package nvm
+package wd
 package z
 theme default
 theme emoji-powerline
