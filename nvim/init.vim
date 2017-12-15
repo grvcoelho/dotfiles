@@ -158,6 +158,12 @@ call plug#begin('~/.vim/plugged')
 
   " Git plugin
   Plug 'tpope/vim-fugitive'
+
+  " Asynchronous linting and make framework for Neovim/Vim
+  Plug 'neomake/neomake'
+
+  " A fancy start screen
+  Plug 'mhinz/vim-startify'
 call plug#end()
 
 " ----------------------------------------------------------------------
@@ -340,6 +346,19 @@ let g:NumberToggleTrigger="<leader>ll"
 " ----------------------------------------------------------------------
 
 let g:go_fmt_command = "goimports"
+
+" ----------------------------------------------------------------------
+" | Plugin - Neomake
+" ----------------------------------------------------------------------
+
+" Run Neomake when writing a buffer.
+" call neomake#configure#automake('w')
+
+" Run Neomake when writing a buffer, and on normal mode changes (after 750ms).
+" call neomake#configure#automake('nw', 750)
+
+" Run Neomake when reading a buffer (after 1s), and when writing.
+" call neomake#configure#automake('rw', 1000)ure#automake('w')
 
 " ----------------------------------------------------------------------
 " | Plugin - Ag                                                        |
