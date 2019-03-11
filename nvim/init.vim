@@ -129,9 +129,6 @@ call plug#begin('~/.vim/plugged')
   " Autoclose things like parentheses, quotes, etc
   Plug 'cohama/lexima.vim'
 
-  " Autocomplete engine
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
   " Display a more complete and beautiful status bar
   Plug 'vim-airline/vim-airline'
 
@@ -275,12 +272,6 @@ if has('nvim')
   nmap <BS> <C-W>h
   nmap <bs> :<c-u>TmuxNavigateLeft<cr>
 endif
-
-" ----------------------------------------------------------------------
-" | Plugin - Deoplete.nvim
-" ----------------------------------------------------------------------
-
-let g:deoplete#enable_at_startup = 1
 
 " ----------------------------------------------------------------------
 " | Plugin - vim-go

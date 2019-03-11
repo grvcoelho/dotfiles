@@ -1,0 +1,137 @@
+#!/bin/sh
+
+# ----------------------------------------------------------------------
+# | Log
+# ----------------------------------------------------------------------
+
+function log {
+  time=`date "+%F %T"`
+  echo "[$time] $1"
+}
+
+function prompt {
+  read -p "$1 " -n 1 -r
+  echo "\n"
+}
+
+# ----------------------------------------------------------------------
+# | MacOS Defaults
+# ----------------------------------------------------------------------
+
+prompt "Install macOS defaults? (y/N)"
+
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  ~/.dotfiles/macos/defaults
+fi
+
+# ----------------------------------------------------------------------
+# | Brew Dependencies
+# ----------------------------------------------------------------------
+
+if ! command -v brew > /dev/null; then
+  log "Installing brew"
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+if ! command -v tree > /dev/null; then
+  log "Installing brew dependencies"
+  brew install z the_silver_searcher tree
+fi
+
+# ----------------------------------------------------------------------
+# | Fish
+# ----------------------------------------------------------------------
+
+if ! command -v fish > /dev/null; then
+  log "Installing fish"
+  brew install fish
+
+  log "Adding fish to /etc/shells"
+  echo "/usr/local/bin/fish" | sudo tee -a /etc/shells
+
+	log "Changing default shell to fish"
+	chsh -s /usr/local/bin/fish
+fi
+
+if [ ! -d ~/.config ]; then
+  log "Creating ~/.config"
+  mkdir -p ~/.config
+fi
+
+if [ ! -d ~/.config/base16-shell ]; then
+  log "Installing base16 shell colorschemes"
+  git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+fi
+
+if [ ! -d ~/.config/fish ]; then
+  log "Linking fish files"
+  ln -sf ~/.dotfiles/fish/fish ~/.config/fish
+  ln -sf ~/.dotfiles/fish/omf ~/.config/omf
+fi
+
+if [ ! -d $HOME/.local/share/omf ]; then
+  log "Installing OMF (Oh My Fish)"
+  curl -L https://get.oh-my.fish | fish
+fi
+
+# ----------------------------------------------------------------------
+# | Tmux
+# ----------------------------------------------------------------------
+
+if ! command -v tmux > /dev/null; then
+  log "Installing tmux"
+  brew install tmux reattach-to-user-namespace
+fi
+
+if [ ! -f ~/.tmux.conf ]; then
+  log "Linking tmux files"
+  ln -sf ~/.dotfiles/tmux/config ~/.tmux.conf
+fi
+
+# ----------------------------------------------------------------------
+# | Nvim
+# ----------------------------------------------------------------------
+
+if ! command -v nvim > /dev/null; then
+  log "Installing neovim"
+  brew install neovim
+
+  log "Installing Plug.vim"
+  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+  log "Installing vim plugins"
+  nvim +PlugInstall +qa
+fi
+
+if [ ! -d ~/.config/nvim ]; then
+  log "Linking nvim files"
+  ln -s ~/.dotfiles/nvim ~/.config/nvim
+fi
+
+# ----------------------------------------------------------------------
+# | Git
+# ----------------------------------------------------------------------
+
+if ! command -v diff-so-fancy > /dev/null; then
+  log "Installing diff-so-fancy"
+  brew install diff-so-fancy
+fi
+
+prompt "Configure git? (Y/n)"
+
+if [[ ! $REPLY =~ ^[Nn]$ ]]; then
+  log "Configuring git"
+  git config --global user.email "guilhermervcoelho@gmail.com"
+  git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+  git config --global core.editor "nvim"
+fi
+
+# ----------------------------------------------------------------------
+# | Hyper (https://hyper.is)
+# ----------------------------------------------------------------------
+
+if [ ! -f ~/.hyper.js ]; then
+  log "Linking hyper.js files"
+  ln -sf ~/.dotfiles/hyper/config ~/.hyper.js
+fi
