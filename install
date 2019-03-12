@@ -115,7 +115,7 @@ fi
 
 if ! command -v diff-so-fancy > /dev/null; then
   log "Installing diff-so-fancy"
-  brew install diff-so-fancy
+  brew install diff-so-fanc
 fi
 
 prompt "Configure git? (Y/n)"
@@ -133,5 +133,5 @@ fi
 
 if [ ! -f ~/.hyper.js ]; then
   log "Linking hyper.js files"
-  ln -sf ~/.dotfiles/hyper/config ~/.hyper.js
+  ln -sf ~/.dotfiles/hyper/hyper.config.js ~/.hyper.js
 fi
