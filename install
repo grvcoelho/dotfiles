@@ -128,10 +128,20 @@ if [[ ! $REPLY =~ ^[Nn]$ ]]; then
 fi
 
 # ----------------------------------------------------------------------
-# | Hyper (https://hyper.is)
+# | Node.js
 # ----------------------------------------------------------------------
 
-if [ ! -f ~/.hyper.js ]; then
-  log "Linking hyper.js files"
-  ln -sf ~/.dotfiles/hyper/hyper.config.js ~/.hyper.js
+if ! command -v nvm > /dev/null; then
+  log "Installing nvm"
+  mkdir -p ~/.nvm
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+fi
+
+if ! command -v npx > /dev/null; then
+  prompt "Install npx globally? (Y/n)"
+
+  if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    log "Installing npx"
+    npm install -g npx
+  fi
 fi
