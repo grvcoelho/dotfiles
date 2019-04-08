@@ -1,1 +1,1 @@
-/Users/grvcoelho/.local/share/omf/themes/tomita/fish_prompt.fish
+/Users/grvcoelho/.local/share/omf/themes/mars/fish_prompt.fish

@@ -3,6 +3,4 @@ package nvm
 package wd
 package z
 theme default
-theme emoji-powerline
-theme flash
-theme tomita
+theme mars
