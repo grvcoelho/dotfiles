@@ -107,7 +107,7 @@ set diffopt+=vertical
 call plug#begin('~/.vim/plugged')
   " Search accross and navigate to files and buffers within the project
   Plug 'ctrlpvim/ctrlp.vim'
-
+  "
   " Perform ag searches and place them in Quickfix menus
   Plug 'rking/ag.vim'
 
@@ -135,32 +135,23 @@ call plug#begin('~/.vim/plugged')
   " Provide themes for vim-airline plugin
   Plug 'vim-airline/vim-airline-themes'
 
-  " Provide syntax highlighting for many programming languages
-  Plug 'sheerun/vim-polyglot'
-
-  " Provide syntax highlighting for racket-lang
-  Plug 'wlangstroth/vim-racket'
-
-  " Provide terraform utilities
-  Plug 'hashivim/vim-terraform'
-
-  " Provide tools for golang
-  Plug 'fatih/vim-go'
-
   " Toggles between relative and absolute line numbers
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
   " Provide base16 colorschemes
   Plug 'chriskempson/base16-vim'
 
-  " Git plugin
-  Plug 'tpope/vim-fugitive'
-
   " Asynchronous linting and make framework for Neovim/Vim
   Plug 'neomake/neomake'
 
   " A fancy start screen
   Plug 'mhinz/vim-startify'
+
+  " Language support: many languages
+  Plug 'sheerun/vim-polyglot'
+
+  " Language support: Go
+  Plug 'fatih/vim-go'
 call plug#end()
 
 " ----------------------------------------------------------------------
@@ -206,7 +197,7 @@ if has('autocmd')
 
     "Access colors present in 256 colorspace
     let base16colorspace=256
-    autocmd BufEnter * colorscheme base16-dracula
+    colorscheme base16-dracula
   augroup END
 
   " Use javascript syntax for json files
@@ -280,19 +271,12 @@ endif
 let g:go_fmt_command = "goimports"
 
 " ----------------------------------------------------------------------
-" | Plugin - vim-terraform
-" ----------------------------------------------------------------------
-
-let g:terraform_fmt_on_save=1
-
-" ----------------------------------------------------------------------
 " | Plugin - NerdTree                                                  |
 " ----------------------------------------------------------------------
 
 noremap <leader>ft :NERDTreeToggle<CR>
 
 " Don't fuck up vim's default file browser
-
 let g:NERDTreeHijackNetrw = 0
 
 " ----------------------------------------------------------------------
@@ -337,19 +321,6 @@ let g:NumberToggleTrigger="<leader>ll"
 " ----------------------------------------------------------------------
 
 let g:go_fmt_command = "goimports"
-
-" ----------------------------------------------------------------------
-" | Plugin - Neomake
-" ----------------------------------------------------------------------
-
-" Run Neomake when writing a buffer.
-" call neomake#configure#automake('w')
-
-" Run Neomake when writing a buffer, and on normal mode changes (after 750ms).
-" call neomake#configure#automake('nw', 750)
-
-" Run Neomake when reading a buffer (after 1s), and when writing.
-" call neomake#configure#automake('rw', 1000)ure#automake('w')
 
 " ----------------------------------------------------------------------
 " | Plugin - Ag                                                        |
