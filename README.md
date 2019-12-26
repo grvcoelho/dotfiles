@@ -5,17 +5,21 @@
 
 ## Install
 
-1. Clone the repository:
-
+On a fresh new computer, just run this one-liner:
   ```sh
-  $ git clone https://github.com/grvcoelho/dotfiles ~/.dotfiles
+  $ curl --silent https://raw.githubusercontent.com/grvcoelho/dotfiles/master/dotfiles.sh | sh
   ```
 
-2. Run the installation script:
+### Finish Setup
 
+1. Add your username and email to gitconfig
   ```sh
-  $ sh ~/.dotfiles/install
+  $ git config user.name "Your Name"
+  $ git config user.email "name@email.com"
   ```
+
+2. [Remap your CapsLock](https://stackoverflow.com/questions/127591/using-caps-lock-as-esc-in-mac-os-x/40254864#40254864) to Escape
 
 ## License
-[MIT](https://github.com/grvcoelho/dotfiles/blob/master/LICENSE) &copy; 2017
+
+[MIT](https://github.com/grvcoelho/dotfiles/blob/master/LICENSE) &copy; 2020
