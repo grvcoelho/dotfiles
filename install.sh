@@ -4,15 +4,15 @@ DOTFILES_REPO=grvcoelho/dotfiles
 DOTFILES=~/.dotfiles
 
 main() {
-  # ask_for_sudo
-  # install_xcode_command_line_tools
-  # clone_dotfiles_repo
-  # install_homebrew
-  # install_homebrew_packages
-  # setup_fish_shell
-  # setup_macos_defaults
-  # setup_vim
-  # setup_tmux
+  ask_for_sudo
+  install_xcode_command_line_tools
+  clone_dotfiles_repo
+  install_homebrew
+  install_homebrew_packages
+  setup_fish_shell
+  setup_macos_defaults
+  setup_vim
+  setup_tmux
   setup_git
 }
 
