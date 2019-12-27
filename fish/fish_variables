@@ -17,6 +17,7 @@ SETUVAR _fish_abbr_ta:tmux\x20attach\x20\x2dt
 SETUVAR _fish_abbr_tkss:tmux\x20kill\x2dsession\x20\x2dt
 SETUVAR _fish_abbr_tl:tmux\x20list\x2dsessions
 SETUVAR _fish_abbr_ts:tmux\x20new\x2dsession\x20\x2ds
+SETUVAR _fish_abbr_unset:set\x20\x2d\x2derase
 SETUVAR _fish_abbr_vim:nvim
 SETUVAR base16_theme:dracula
 SETUVAR budspencer_colors:000000\x1e083743\x1e445659\x1efdf6e3\x1eb58900\x1ecb4b16\x1edc121f\x1eaf005f\x1e6c71c4\x1e268bd2\x1e2aa198\x1e859900

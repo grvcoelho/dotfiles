@@ -9,6 +9,9 @@ abbr gf 'git fetch'
 abbr gl 'git log'
 abbr gll 'git log --graph --decorate --pretty=oneline --abbrev-commit'
 
+# Fish abbreviations
+abbr unset 'set --erase'
+
 # Tmux abbreviations
 abbr ta 'tmux attach -t'
 abbr tl 'tmux list-sessions'
