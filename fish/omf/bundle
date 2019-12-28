@@ -1,7 +1,0 @@
-package foreign-env
-package nvm
-package wd
-package z
-theme default
-theme mars
-theme tomita
