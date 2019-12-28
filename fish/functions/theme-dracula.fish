@@ -3,7 +3,7 @@
 # Dracula scheme by Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
 
 function theme-dracula -d "Dracula"
-  set color00 28/29/36 # Base 00 - Black
+  set color00 14/14/1f # Base 00 - Black
   set color01 ea/51/b2 # Base 08 - Red
   set color02 eb/ff/87 # Base 0B - Green
   set color03 00/f7/69 # Base 0A - Yellow
@@ -79,12 +79,12 @@ function theme-dracula -d "Dracula"
   if test -n "$ITERM_SESSION_ID"
     # iTerm2 proprietary escape codes
     put_template_custom Pg e9e9f4 # foreground
-    put_template_custom Ph 282936 # background
-    put_template_custom Pi e9e9f4 # bold color
+    put_template_custom Ph 14141f # background
+    put_template_custom Pi 14141f # bold color
     put_template_custom Pj 4d4f68 # selection color
     put_template_custom Pk e9e9f4 # selected text color
     put_template_custom Pl e9e9f4 # cursor
-    put_template_custom Pm 282936 # cursor text
+    put_template_custom Pm 14141f # cursor text
   else
     put_template_var 10 $colorfg
     if [ "$BASE16_SHELL_SET_BACKGROUND" != false ]
