@@ -1,5 +1,6 @@
 # fish
 fishd.*
+fish/fish_variables
 
 # brew
 brew/*.lock.json
