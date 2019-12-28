@@ -1,6 +1,9 @@
 # fish
 fishd.*
 
+# brew
+brew/*.lock.json
+
 # nvim
 nvim/null
 .netrwhist
