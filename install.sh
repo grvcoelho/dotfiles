@@ -155,7 +155,7 @@ function setup_macos_defaults() {
   current_dir=$(pwd)
   cd ${DOTFILES}/macos
 
-  if sh defaults.sh; then
+  if sh setup.sh; then
     cd $current_dir
     success "macOS defaults updated successfully"
   else
