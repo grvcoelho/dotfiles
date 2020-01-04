@@ -10,6 +10,12 @@ endif
 " Don't make vim vi-compatibile
 set nocompatible
 
+" Maybe makes drawing faster
+set lazyredraw
+
+" Use unix line endings
+set fileformat=unix
+
 " Enable syntax highlighting
 syntax on
 
@@ -25,9 +31,6 @@ set undodir=~/.config/nvim/null
 
 " Display incomplete commands
 set showcmd
-
-" Display the mode you're in
-set showmode
 
 "Avoid all the hit-enter prompts
 set shortmess=aAItW
@@ -99,6 +102,18 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 " Always diff using vertical mode
 set diffopt+=vertical
 
+" Infinite undo/redo
+if has('persistent_undo')
+  let target_path = expand('~/.config/nvim/null/')
+
+  if !isdirectory(target_path)
+    call system('mkdir -p ' . target_path)
+  endif
+
+  let &undodir = target_path
+  set undofile
+endif
+
 " ----------------------------------------------------------------------
 " | Plugins                                                            |
 " ----------------------------------------------------------------------
@@ -106,8 +121,9 @@ set diffopt+=vertical
 " Start Plug bundles
 call plug#begin('~/.vim/plugged')
   " Search accross and navigate to files and buffers within the project
-  Plug 'ctrlpvim/ctrlp.vim'
-  "
+  Plug '/usr/local/opt/fzf' " Must have fzf installed
+  Plug 'junegunn/fzf.vim'
+
   " Perform ag searches and place them in Quickfix menus
   Plug 'rking/ag.vim'
 
@@ -240,6 +256,20 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Use qq to record, q to stop, Q to play a macro
+nnoremap Q @q
+vnoremap Q :normal @q
+
+" Use tab and shift tab to indent and de-indent code
+nnoremap <Tab>   >>
+nnoremap <S-Tab> <<
+vnoremap <Tab>   >><Esc>gv
+vnoremap <S-Tab> <<<Esc>gv
+inoremap <S-Tab> <C-d>
+
+" Use `u` to undo, use `U` to redo, mind = blown
+nnoremap U <C-r>
+
 " Create windows
 nnoremap <leader>v <C-w>v<C-w>l
 nnoremap <leader>m <C-w>s<C-w>j
@@ -253,6 +283,18 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Map <C-C> to <esc>
 noremap <C-C> <esc>
+
+" Sometimes I press q:, Q: or :Q instead of :q, I never want to open related functionality
+map <silent> q: :q<Cr>
+map <silent> Q: :q<Cr>
+map <silent> :Q :q<Cr>
+
+" Save using <C-s> in every mode
+" When in operator-pending or insert, takes you to normal mode
+nnoremap <C-s> :write<Cr>
+vnoremap <C-s> <C-c>:write<Cr>
+inoremap <C-s> <Esc>:write<Cr>
+onoremap <C-s> <Esc>:write<Cr>
 
 " ----------------------------------------------------------------------
 " | Nvim specific
@@ -274,7 +316,7 @@ let g:go_fmt_command = "goimports"
 " | Plugin - NerdTree                                                  |
 " ----------------------------------------------------------------------
 
-noremap <leader>ft :NERDTreeToggle<CR>
+noremap <leader>t :NERDTreeToggle<CR>
 
 " Don't fuck up vim's default file browser
 let g:NERDTreeHijackNetrw = 0
@@ -298,17 +340,11 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " ----------------------------------------------------------------------
-" | Plugin - CtrlP                                                     |
+" | Plugin - FZF                                                       |
 " ----------------------------------------------------------------------
 
-" Work not only in ancestor directories of the working directory
-let g:ctrlp_working_path_mode = 'a'
-
-" Ignore custom folders
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store'
-
-" Ignore git ignored folders
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+noremap <C-p> :Files<CR>
+noremap <leader>f :Files<CR>
 
 " ----------------------------------------------------------------------
 " | Plugin - Number Toggle                                             |
