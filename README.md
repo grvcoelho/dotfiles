@@ -7,7 +7,7 @@
 
 On a fresh new computer, just run this one-liner:
   ```sh
-  $ curl --silent https://raw.githubusercontent.com/grvcoelho/dotfiles/master/dotfiles.sh | sh
+  $ curl --silent https://raw.githubusercontent.com/grvcoelho/dotfiles/master/install.sh | sh
   ```
 
 ### Finish Setup
