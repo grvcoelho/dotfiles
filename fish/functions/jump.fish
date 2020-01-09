@@ -25,7 +25,7 @@ function jump
 
     if not test -d $dir
       mkdir -p $dir
-      git clone git@github.com:$target $dir
+      git clone --recursive git@github.com:$target $dir
       cd $dir
       git remote remove origin
       git remote add origin git@github.com:$target
