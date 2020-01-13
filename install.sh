@@ -10,6 +10,7 @@ main() {
   install_homebrew
   install_homebrew_packages
   setup_fish_shell
+  setup_oh_my_fish
   setup_macos_defaults
   setup_vim
   setup_tmux
@@ -148,6 +149,25 @@ function setup_fish_shell() {
     symlink "fish" "${DOTFILES}/fish" ~/.config/fish
   fi
 }
+
+function setup_oh_my_fish() {
+  info "oh-my-fish setup"
+
+  OMF_LOCATION=~/.local/share/omf
+  OMF_TEMP_SCRIPT=/tmp/omf_installation
+
+  if test -e $OMF_LOCATION; then
+    substep "oh-my-fish already exists, skipping"
+  else
+    substep "Installing oh-my-fish"
+    curl -L https://get.oh-my.fish > $OMF_TEMP_SCRIPT
+    fish $OMF_TEMP_SCRIPT --path=~/.local/share/omf --config=~/.config/omf --noninteractive
+
+    substep "Symlinking omf config files"
+    symlink "omf" "${DOTFILES}/omf" ~/.config/omf
+  fi
+}
+
 
 function setup_macos_defaults() {
   info "Updating macOS defaults"
