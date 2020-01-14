@@ -10,10 +10,12 @@ main() {
   install_homebrew
   install_homebrew_packages
   setup_fish_shell
+  setup_oh_my_fish
   setup_macos_defaults
   setup_vim
   setup_tmux
   setup_git
+  setup_node
 }
 
 function ask_for_sudo() {
@@ -149,6 +151,25 @@ function setup_fish_shell() {
   fi
 }
 
+function setup_oh_my_fish() {
+  info "oh-my-fish setup"
+
+  OMF_LOCATION=~/.local/share/omf
+  OMF_TEMP_SCRIPT=/tmp/omf_installation
+
+  if test -e $OMF_LOCATION; then
+    substep "oh-my-fish already exists, skipping"
+  else
+    substep "Installing oh-my-fish"
+    curl -L https://get.oh-my.fish > $OMF_TEMP_SCRIPT
+    fish $OMF_TEMP_SCRIPT --path=~/.local/share/omf --config=~/.config/omf --noninteractive
+
+    substep "Symlinking omf config files"
+    symlink "omf" "${DOTFILES}/omf" ~/.config/omf
+  fi
+}
+
+
 function setup_macos_defaults() {
   info "Updating macOS defaults"
 
@@ -197,6 +218,30 @@ function setup_git() {
   substep "Symlinking git config files"
   symlink "git" "${DOTFILES}/git/gitconfig" ~/.gitconfig
 }
+
+function setup_node() {
+  info "Node.js setup"
+
+  NVM_DIR=~/.nvm
+
+  if test -e $NVM_DIR; then
+    substep "nvm already exists, skipping"
+  else
+    substep "Installing nvm"
+
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+    export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+    substep "Installing Node.js at a stable version"
+
+    nvm install stable
+    nvm alias default stable
+
+    success "Installed Node.js, version: $(node -v)"
+  fi
+}
+
 
 function symlink() {
   application=$1
