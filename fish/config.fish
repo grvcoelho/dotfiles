@@ -4,6 +4,7 @@
 
 # Setup nvm
 set -x NVM_DIR ~/.nvm
+nvm use default --silent &
 
 # --------------–-------–--------–--------–-------–--–-----
 # Abbreviations
