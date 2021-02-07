@@ -13,6 +13,7 @@ nvm use default --silent &
 # User functions
 abbr j jump
 abbr kp kill-process
+abbr gi gitignore
 
 # Git
 abbr ga 'git add'
