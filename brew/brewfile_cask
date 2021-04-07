@@ -1,4 +1,5 @@
 cask "1password"
+cask "authy" 
 cask "docker"
 cask "figma"
 cask "font-roboto-mono-for-powerline"
